@@ -23,7 +23,11 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    cart: [product]
+    cart: {
+        type: Array,
+        required: false,
+        default: []
+    }
 })
 
 module.exports = mongoose.model('Product', productSchema)
