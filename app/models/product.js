@@ -18,9 +18,8 @@ const productSchema = new mongoose.Schema({
         required: true
     },
     description: {
-        type: Date,
-        required: true,
-        default: Date.now
+        type: String,
+        required: true
     },
     created_by: {
         type: String,

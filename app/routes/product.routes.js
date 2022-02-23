@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const Product = require('../models/product')
+const verifyToken = require('../middleware/authJwt')
 
 //Getting all
 router.get('/', async (req, res) => {
@@ -18,15 +19,15 @@ router.get('/:id', getProduct, (req, res) => {
 })
 
 //Creating one
-router.post('/', async (req, res) => {
-    let { title, category, description, img, price, created_by} = req.body
+router.post('/',verifyToken, async (req, res) => {
+    let { title, category, description, img, price} = req.body
     const product = new Product({
         title,
         category,
         description,
         img,
         price,
-        created_by
+        created_by: req.userId
     })
 
     try {

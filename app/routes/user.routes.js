@@ -4,6 +4,8 @@ const User = require('../models/user')
 const bcrypt = require('bcrypt')
 const jwt = require("jsonwebtoken");
 
+const checkDuplicateUsernameOrEmail = require('../middleware/verifySignUp')
+
 router.get('/', async (req, res) =>{
     try {
         const users = await User.find()
@@ -13,7 +15,7 @@ router.get('/', async (req, res) =>{
     }
 })
 
-router.post('/signup', async (req, res) => {
+router.post('/signup', checkDuplicateUsernameOrEmail, async (req, res) => {
     try {
         let { fullname, email, password, phone_number } = req.body
         const salt = await bcrypt.genSalt()
@@ -63,4 +65,5 @@ router.post('/signin', async (req, res) =>{
         res.status(500).send({ message: err.message });
     }
 })
+
 module.exports = router
