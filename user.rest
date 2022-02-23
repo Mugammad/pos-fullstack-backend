@@ -1,0 +1,14 @@
+GET http://localhost:3000/users
+
+###
+
+
+POST http://localhost:3000/users/signin
+Content-Type: application/json
+
+{
+    "fullname": "Amazing Person",
+    "password": "password"
+}
+
+###
