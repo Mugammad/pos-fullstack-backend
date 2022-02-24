@@ -7,7 +7,7 @@ POST http://localhost:3000/users/signin
 Content-Type: application/json
 
 {
-    "fullname": "Amazing Person",
+    "fullname": "Amazing",
     "password": "password"
 }
 
@@ -15,15 +15,20 @@ Content-Type: application/json
 
 POST http://localhost:3000/products
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMTYwNzMxNWI1NWRmM2Q3YzYxNTQ2ZiIsImlhdCI6MTY0NTYyNTk4NiwiZXhwIjoxNjQ1NzEyMzg2fQ.xJcS_s4GDklVDyAIKU0tjWm7JY8nvsl7gBgkBxlDyW4
-
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMTYwNzMxNWI1NWRmM2Q3YzYxNTQ2ZiIsImlhdCI6MTY0NTY0ODU1OCwiZXhwIjoxNjQ1NzM0OTU4fQ.jMpCUU78QZ0SlA-cKEPQtwD0aXOznFJHb3SlkjXU49Y
 
 {
-    "title": "hoodie",
+    "title": "crewneck",
     "category": "tops",
-    "price": 2,
-    "description": "A hoodie",
-    "img": "alskdfj;al"
+    "description": "a crewneck",
+    "img": "lkjdsf",
+    "price": 7
 }
+
+###
+
+DELETE  http://localhost:3000/products/62169fa094060db41a8c37d6
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMTY5ZmE5OTQwNjBkYjQxYThjMzdkYSIsImlhdCI6MTY0NTY0OTk1OSwiZXhwIjoxNjQ1NzM2MzU5fQ.r8gHJKPiFswUpOhNTP8wSJIbe4XPyCKdJArYottXq2Q
+
 
 ###

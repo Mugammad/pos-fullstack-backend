@@ -13,7 +13,9 @@ app.use(express.json())
 
 const productsRouter = require('./app/routes/product.routes')
 const usersRouter = require('./app/routes/user.routes')
+const authRouter = require('./app/routes/auth.routes')
 app.use('/products', productsRouter)
 app.use('/users', usersRouter)
+app.use('/auth', authRouter)
 
 app.listen(process.env.PORT || 3000, () => console.log(`Server started on port 3000`))
