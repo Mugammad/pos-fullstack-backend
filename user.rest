@@ -1,0 +1,34 @@
+GET http://localhost:3000/users
+
+###
+
+
+POST http://localhost:3000/users/signin
+Content-Type: application/json
+
+{
+    "fullname": "Amazing",
+    "password": "password"
+}
+
+###
+
+POST http://localhost:3000/products
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMTYwNzMxNWI1NWRmM2Q3YzYxNTQ2ZiIsImlhdCI6MTY0NTY0ODU1OCwiZXhwIjoxNjQ1NzM0OTU4fQ.jMpCUU78QZ0SlA-cKEPQtwD0aXOznFJHb3SlkjXU49Y
+
+{
+    "title": "crewneck",
+    "category": "tops",
+    "description": "a crewneck",
+    "img": "lkjdsf",
+    "price": 7
+}
+
+###
+
+DELETE  http://localhost:3000/products/62169fa094060db41a8c37d6
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMTY5ZmE5OTQwNjBkYjQxYThjMzdkYSIsImlhdCI6MTY0NTY0OTk1OSwiZXhwIjoxNjQ1NzM2MzU5fQ.r8gHJKPiFswUpOhNTP8wSJIbe4XPyCKdJArYottXq2Q
+
+
+###

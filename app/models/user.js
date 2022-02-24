@@ -15,13 +15,13 @@ const userSchema = new mongoose.Schema({
         required: true
     },
     phone_number: {
+        type: String,
+        required: true
+    },
+    join_date: {
         type: Date,
         required: true,
         default: Date.now
-    },
-    join_date: {
-        type: String,
-        required: true,
     },
     cart: {
         type: Array,
@@ -30,4 +30,4 @@ const userSchema = new mongoose.Schema({
     }
 })
 
-module.exports = mongoose.model('Product', productSchema)
+module.exports = mongoose.model('User', userSchema)
