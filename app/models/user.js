@@ -1,5 +1,6 @@
+//MUGAMMAD BREDA WROTE THIS CODE....WELL....MOST OF IT
+
 const mongoose = require('mongoose')
-const product = require('./product')
 
 const userSchema = new mongoose.Schema({
     fullname: {
@@ -15,15 +16,19 @@ const userSchema = new mongoose.Schema({
         required: true
     },
     phone_number: {
+        type: String,
+        required: true
+    },
+    join_date: {
         type: Date,
         required: true,
         default: Date.now
     },
-    join_date: {
-        type: String,
-        required: true,
-    },
-    cart: [product]
+    cart: {
+        type: Array,
+        required: false,
+        default: []
+    }
 })
 
-module.exports = mongoose.model('Product', productSchema)
+module.exports = mongoose.model('User', userSchema)

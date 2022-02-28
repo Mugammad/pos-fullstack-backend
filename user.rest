@@ -1,0 +1,78 @@
+
+GET http://localhost:3000/users
+
+###
+
+GET http://localhost:3000/users/621607315b55df3d7c61546f
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjE2MDczMTViNTVkZjNkN2M2MTU0NmYiLCJmdWxsbmFtZSI6IkFtYXppbmcgUGVyc29uIiwiZW1haWwiOiJtb2JyZWFkQGdtYWlsLmNvbSIsInBob25lX251bWJlciI6IjEyMzQ1NiIsImNhcnQiOltdLCJpYXQiOjE2NDU5OTQyNDksImV4cCI6MTY0NjA4MDY0OX0.QT7BcJQFlCAwEVEPadQise_1x_HUOF9WJoUFn1sLzBs
+
+###
+
+PATCH  http://localhost:3000/products/62169fa094060db41a8c37d6
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjE2MDczMTViNTVkZjNkN2M2MTU0NmYiLCJmdWxsbmFtZSI6IkFtYXppbmcgR3V5IiwiZW1haWwiOiJtb2JyZWFkQGdtYWlsLmNvbSIsInBob25lX251bWJlciI6IjEyMzQ1NiIsImNhcnQiOltdLCJpYXQiOjE2NDYwMzUyMDksImV4cCI6MTY0NjEyMTYwOX0.8tlaKyUjX0tdzCtZPUL_yXYHCLCTU0x3ySNVs73rz_w
+
+{
+    "title": "Crewneck"
+}
+
+###
+
+
+POST http://localhost:3000/auth/signin
+Content-Type: application/json
+
+{
+    "fullname": "Amazing Guy",
+    "password": "password"
+}
+
+###
+
+POST http://localhost:3000/products
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMTY5ZmE5OTQwNjBkYjQxYThjMzdkYSIsImlhdCI6MTY0NTc3MTQ0MSwiZXhwIjoxNjQ1ODU3ODQxfQ.81oYR4Bfa48NYCnr-9rpX0hJh0QYbjP4Dj8mgURKmMg
+
+{
+    "title": "hoodie 2",
+    "category": "tops",
+    "description": "another hoodie",
+    "img": "lkjdsf",
+    "price": 7
+}
+
+###
+
+DELETE  http://localhost:3000/products/62169fa094060db41a8c37d6
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMTY5ZmE5OTQwNjBkYjQxYThjMzdkYSIsImlhdCI6MTY0NTY0OTk1OSwiZXhwIjoxNjQ1NzM2MzU5fQ.r8gHJKPiFswUpOhNTP8wSJIbe4XPyCKdJArYottXq2Q
+
+
+###
+
+GET  http://localhost:3000/cart
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjE2MDczMTViNTVkZjNkN2M2MTU0NmYiLCJmdWxsbmFtZSI6IkFtYXppbmcgR3V5IiwiZW1haWwiOiJtb2JyZWFkQGdtYWlsLmNvbSIsInBob25lX251bWJlciI6IjEyMzQ1NiIsImNhcnQiOlt7Il9pZCI6IjYyMTY5ZmEwOTQwNjBkYjQxYThjMzdkNiIsInRpdGxlIjoiY3Jld25lY2siLCJjYXRlZ29yeSI6InRvcHMiLCJpbWciOiJsa2pkc2YiLCJwcmljZSI6NywiZGVzY3JpcHRpb24iOiJhIGNyZXduZWNrIiwiY3JlYXRlZF9ieSI6IjYyMTYwNzMxNWI1NWRmM2Q3YzYxNTQ2ZiIsIl9fdiI6MCwicXR5Ijo1fV0sImlhdCI6MTY0NjAyNzU3OCwiZXhwIjoxNjQ2MTEzOTc4fQ.rTLWA0QkcQ2EDvhzWi9W2q1UELFLyk8B5KZnZgby5R0
+
+###
+
+PATCH http://localhost:3000/users/621607315b55df3d7c61546f
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjE2MDczMTViNTVkZjNkN2M2MTU0NmYiLCJmdWxsbmFtZSI6IkFtYXppbmcgUGVyc29uIiwiZW1haWwiOiJtb2JyZWFkQGdtYWlsLmNvbSIsInBob25lX251bWJlciI6IjEyMzQ1NiIsImNhcnQiOltdLCJpYXQiOjE2NDU5OTQ0NDYsImV4cCI6MTY0NjA4MDg0Nn0.jEqk8_t4SjLEKR2vjIGgrkz6V--n6l54kpuTjhmyADs
+
+{
+    "fullname": "Amazing Guy"
+}
+
+###
+
+PUT http://localhost:3000/cart/62169fa094060db41a8c37d6
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjE2MDczMTViNTVkZjNkN2M2MTU0NmYiLCJmdWxsbmFtZSI6IkFtYXppbmcgR3V5IiwiZW1haWwiOiJtb2JyZWFkQGdtYWlsLmNvbSIsInBob25lX251bWJlciI6IjEyMzQ1NiIsImNhcnQiOlt7Il9pZCI6IjYyMTY5ZmEwOTQwNjBkYjQxYThjMzdkNiIsInRpdGxlIjoiQ3Jld25lY2siLCJjYXRlZ29yeSI6InRvcHMiLCJpbWciOiJsa2pkc2YiLCJwcmljZSI6NywiZGVzY3JpcHRpb24iOiJhIGNyZXduZWNrIiwiY3JlYXRlZF9ieSI6IjYyMTYwNzMxNWI1NWRmM2Q3YzYxNTQ2ZiIsIl9fdiI6MCwicXR5IjoyfV0sImlhdCI6MTY0NjA0MzQyNywiZXhwIjoxNjQ2MTI5ODI3fQ.7xNa6sgJpxRBtifYZB6r-AS1tQVogTr-TUsogs-jUHw
+
+{
+    "qty": 1
+}
+
+###
+
+PATCH  http://localhost:3000/cart/62169fa094060db41a8c37d6
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjE2MDczMTViNTVkZjNkN2M2MTU0NmYiLCJmdWxsbmFtZSI6IkFtYXppbmcgR3V5IiwiZW1haWwiOiJtb2JyZWFkQGdtYWlsLmNvbSIsInBob25lX251bWJlciI6IjEyMzQ1NiIsImNhcnQiOlt7Il9pZCI6IjYyMTY5ZmEwOTQwNjBkYjQxYThjMzdkNiIsInRpdGxlIjoiY3Jld25lY2siLCJjYXRlZ29yeSI6InRvcHMiLCJpbWciOiJsa2pkc2YiLCJwcmljZSI6NywiZGVzY3JpcHRpb24iOiJhIGNyZXduZWNrIiwiY3JlYXRlZF9ieSI6IjYyMTYwNzMxNWI1NWRmM2Q3YzYxNTQ2ZiIsIl9fdiI6MCwicXR5Ijo1fV0sImlhdCI6MTY0NjAyODg0MywiZXhwIjoxNjQ2MTE1MjQzfQ.aMmR_Tw8gqS2e-05lHfkfcqGNFq4cjKx0tpa1s6hFLk

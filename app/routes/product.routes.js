@@ -1,81 +1,24 @@
+//MUGAMMAD BREDA WROTE THIS CODE....WELL....MOST OF IT
+
 const express = require('express')
 const router = express.Router()
-const Product = require('../models/product')
+const verifyToken = require('../middleware/authJwt')
+const getProduct = require('../middleware/products')
+const controller = require('../controllers/product.controller')
 
-//Getting all
-router.get('/', async (req, res) => {
-    try {
-        const products = await product.find()
-        res.json(products)
-    } catch (err){
-        res.status(500).json({message: err.message})
-    }
-})
+//Getting all products
+router.get('/',verifyToken, controller.getAll)
 
-//Getting one
-router.get('/:id', getProduct, (req, res) => {
-    res.send(res.product.title)
-})
+//Getting a product
+router.get('/:id', [getProduct, verifyToken], controller.getOne)
 
-//Creating one
-router.post('/', async (req, res) => {
-    let { title, category, description, img, price, created_by} = req.body
-    const product = new Product({
-        title,
-        category,
-        description,
-        img,
-        price,
-        created_by
-    })
+//Creating a product
+router.post('/',verifyToken, controller.createProduct)
 
-    try {
-        const newProduct = await product.save()
-        res.status(201).json(newProduct)
-    } catch (error) {
-        res.status(400).json({message: error.message})
-    }
-})
+//Updating a product
+router.patch('/:id', [getProduct, verifyToken], controller.updateProduct)
 
-//Updating one
-// router.patch('/:id', getSubscriber, async (req, res) => {
-//     if(req.body.name != null) {
-//         res.subscriber.name = req.body.name
-//     }
-//     if(req.body.subscribedToChannel != null) {
-//         res.subscriber.subscribedToChannel = req.body.subscribedToChannel
-//     }
-//     try {
-//         const updatedSubscriber = await res.subscriber.save()
-//         res.json(updatedSubscriber)
-//     } catch (error) {
-//         res.status(400).json({message: error.message})
-//     }
-// })
-
-//Deleting one
-router.delete('/:id', getProduct, async (req, res) => {
-    try {
-        await res.product.remove()
-        res.json({message: 'Product deleted'})
-    } catch (err) {
-        res.status(500).json({message: err.message})
-    }
-})
-
-async function getProduct(req, res, next) {
-    let product
-    try {
-        product = await Product.findById(req.params.id)
-        if(subscriber == null) {
-            return res.status(404).json({message: 'Cannot find product'})
-        }
-    } catch (error) {
-        return res.status(500).json({message: error.message})
-    }
-
-    res.product = product
-    next()
-}
+//Deleting a product
+router.delete('/:id', [getProduct, verifyToken], controller.removeProduct)
 
 module.exports = router
