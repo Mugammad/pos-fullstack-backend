@@ -1,3 +1,5 @@
+//MUGAMMAD BREDA WROTE THIS CODE....WELL....MOST OF IT
+
 const User = require('../models/user')
 const bcrypt = require('bcrypt')
 const jwt = require("jsonwebtoken");
@@ -29,7 +31,7 @@ exports.signin = async (req, res) =>{
                 return res.status(404).send({ message: "User Not found." });
             }
 
-            let passwordIsValid = bcrypt.compareSync( req.body.password, person.password);
+            let passwordIsValid = bcrypt.compare( req.body.password, person.password);
 
             if (!passwordIsValid) {
                 return res.status(401).send({
@@ -37,17 +39,23 @@ exports.signin = async (req, res) =>{
                   message: "Invalid Password!"
                 });
             }
-            var token = jwt.sign({ id: person.id }, process.env.SECRET, {
+
+            let newUser = {
+                _id: person._id,
+                fullname: person.fullname,
+                email: person.email,
+                phone_number: person.phone_number,
+                cart: person.cart
+            }
+
+            let token = jwt.sign( newUser, process.env.SECRET, {
                 expiresIn: 86400 // 24 hours
             });
             res.status(200).send({
-                id: person.id,
-                fullname: person.fullname,
-                email: person.email,
+                newUser,
                 accessToken: token
             });
         });
-        
     } catch (err) {
         res.status(500).send({ message: err.message });
     }

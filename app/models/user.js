@@ -1,5 +1,6 @@
+//MUGAMMAD BREDA WROTE THIS CODE....WELL....MOST OF IT
+
 const mongoose = require('mongoose')
-const product = require('./product')
 
 const userSchema = new mongoose.Schema({
     fullname: {

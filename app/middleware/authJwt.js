@@ -1,7 +1,9 @@
+//MUGAMMAD BREDA WROTE THIS CODE....WELL....MOST OF IT
+
 const jwt = require("jsonwebtoken");
 
 // function checks jwt token
-verifyToken = (req, res, next) => {
+verifyToken = async (req, res, next) => {
   const authHeader = req.headers["authorization"];
   const token = authHeader && authHeader.split(' ')[1]
   if (!token) {
@@ -15,7 +17,8 @@ verifyToken = (req, res, next) => {
         message: "Unauthorized!"
       });
     }
-    req.userId = decoded.id;
+
+    req.decoded = decoded
     next();
   });
 };
