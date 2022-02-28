@@ -1,3 +1,5 @@
+//MUGAMMAD BREDA WROTE THIS CODE....WELL....MOST OF IT
+
 const Product = require('../models/product')
 
 exports.getAll = async (req, res) => {
@@ -35,7 +37,7 @@ exports.createProduct = async (req, res) => {
 exports.updateProduct = async (req, res) => {
     let { title, category, description, img, price} = req.body
     try {
-        if(req.userId != res.product.created_by){
+        if(req.decoded._id != res.product.created_by){
             return res.status(401).send({ message: "Unauthorized"});
         }
 
@@ -64,7 +66,7 @@ exports.updateProduct = async (req, res) => {
 
 exports.removeProduct = async (req, res) => {
     try {
-        if(req.userId != res.product.created_by){
+        if(req.decoded._id != res.product.created_by){
             return res.status(401).send({ message: "Unauthorized"});
         }
         await res.product.remove()

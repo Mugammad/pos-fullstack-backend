@@ -1,3 +1,5 @@
+//MUGAMMAD BREDA WROTE THIS CODE....WELL....MOST OF IT
+
 const User = require('../models/user')
 
 // function name speaks for itself

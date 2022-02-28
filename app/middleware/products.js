@@ -1,3 +1,5 @@
+//MUGAMMAD BREDA WROTE THIS CODE....WELL....MOST OF IT
+
 const Product = require('../models/product')
 
 getProduct = async (req, res, next) => {

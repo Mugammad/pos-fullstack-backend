@@ -1,3 +1,5 @@
+//MUGAMMAD BREDA WROTE THIS CODE....WELL....MOST OF IT
+
 const express = require('express')
 const router = express.Router()
 const verifyToken = require('../middleware/authJwt')
@@ -5,10 +7,10 @@ const getProduct = require('../middleware/products')
 const controller = require('../controllers/product.controller')
 
 //Getting all products
-router.get('/', controller.getAll)
+router.get('/',verifyToken, controller.getAll)
 
 //Getting a product
-router.get('/:id', getProduct, controller.getOne)
+router.get('/:id', [getProduct, verifyToken], controller.getOne)
 
 //Creating a product
 router.post('/',verifyToken, controller.createProduct)

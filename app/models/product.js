@@ -1,3 +1,5 @@
+//MUGAMMAD BREDA WROTE THIS CODE....WELL....MOST OF IT
+
 const mongoose = require('mongoose')
 
 const productSchema = new mongoose.Schema({

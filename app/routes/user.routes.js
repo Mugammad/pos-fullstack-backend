@@ -1,14 +1,23 @@
+//MUGAMMAD BREDA WROTE THIS CODE....WELL....MOST OF IT
+
 const express = require('express')
 const router = express.Router()
-const User = require('../models/user')
+const controller = require('../controllers/user.controller')
+const getUser = require('../middleware/users')
+const verifyToken = require('../middleware/authJwt')
 
-router.get('/', async (req, res) =>{
-    try {
-        const users = await User.find()
-        res.status(200).json(users)
-    } catch (error) {
-        res.status(500).json({message: error.message})
-    }
-})
+//USER ROUTES
+
+//get all users
+router.get('/', controller.getAll)
+
+// get specific user
+router.get('/:id', [verifyToken, getUser], controller.getOne)
+
+//update specific user info
+router.patch('/:id', [verifyToken, getUser] ,controller.updateUser)
+
+//delete specific user
+router.delete('/:id', [verifyToken, getUser] ,controller.deleteUser)
 
 module.exports = router
