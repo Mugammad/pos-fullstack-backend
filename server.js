@@ -20,4 +20,8 @@ app.use('/users', usersRouter)
 app.use('/cart', cartRouter)
 app.use('/auth', authRouter)
 
+app.get('/', (req, res) => {
+    res.status(200).json({message: "We sell hoodies"})
+})
+
 app.listen(process.env.PORT || 3000, () => console.log(`Server started on port 3000`))
