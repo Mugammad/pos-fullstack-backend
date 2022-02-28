@@ -5,7 +5,7 @@ const Product = require('../models/product')
 exports.getAll = async (req, res) => {
     try {
         const products = await Product.find()
-        res.json(products)
+        res.json({products})
     } catch (err){
         res.status(500).json({message: err.message})
     }
@@ -28,7 +28,7 @@ exports.createProduct = async (req, res) => {
 
     try {
         const newProduct = await product.save()
-        res.status(201).json(newProduct)
+        res.status(201).json({newProduct})
     } catch (error) {
         res.status(400).json({message: error.message})
     }
