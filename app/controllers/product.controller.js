@@ -23,7 +23,7 @@ exports.createProduct = async (req, res) => {
         description,
         img,
         price,
-        created_by: req.userId
+        created_by: req.decoded._id
     })
 
     try {
