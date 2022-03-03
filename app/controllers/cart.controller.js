@@ -33,15 +33,15 @@ exports.addCartItem = async (req, res) => {
             res.user.cart = cart
         }
 
-        const newUser = await res.user.save()
+        await res.user.save()
 
-        // let newUser = {
-        //     _id: res.user._id,
-        //     fullname: res.user.fullname,
-        //     email: res.user.email,
-        //     phone_number: res.user.phone_number,
-        //     cart: res.user.cart
-        // }
+        let newUser = {
+            _id: res.user._id,
+            fullname: res.user.fullname,
+            email: res.user.email,
+            phone_number: res.user.phone_number,
+            cart: res.user.cart
+        }
 
         let token = jwt.sign( newUser, process.env.SECRET, {
             expiresIn: 86400 // 24 hours
@@ -49,7 +49,7 @@ exports.addCartItem = async (req, res) => {
         
         console.log(cart)
         console.log(res.user.cart);
-        res.status(201).json({newUser, accessToken: token})
+        res.status(201).json({ newUser, accessToken: token})
     } catch (error) {
         res.status(500).json({message: error.message})
     }
@@ -74,7 +74,7 @@ exports.delCartItems = async (req, res) => {
 
         await res.user.save()
 
-        res.json({message: 'Cart emptied', newUser, accessToken: token})
+        res.json({message: 'Cart emptied',newUser, accessToken: token})
     } catch (err) {
         res.status(500).json({message: err.message})
     }
@@ -93,19 +93,19 @@ exports.delCartItem = async (req, res) => {
 
         res.user.cart = cart
 
-        // let newUser = {
-        //     _id: res.user._id,
-        //     fullname: res.user.fullname,
-        //     email: res.user.email,
-        //     phone_number: res.user.phone_number,
-        //     cart: res.user.cart
-        // }
-        const newUser = await res.user.save()
+        let newUser = {
+            _id: res.user._id,
+            fullname: res.user.fullname,
+            email: res.user.email,
+            phone_number: res.user.phone_number,
+            cart: res.user.cart
+        }
 
         let token = jwt.sign( newUser, process.env.SECRET, {
             expiresIn: 86400 // 24 hours
         });
 
+        await res.user.save()
 
         res.json({message: 'Cart item removed', newUser, accessToken: token})
     } catch (err) {
@@ -125,15 +125,15 @@ exports.changeQty = async (req, res) => {
             }
         });
 
-        const updatedUser = await res.user.save()
+        await res.user.save()
 
-        // let newUser = {
-        //     _id: res.user._id,
-        //     fullname: res.user.fullname,
-        //     email: res.user.email,
-        //     phone_number: res.user.phone_number,
-        //     cart: res.user.cart
-        // }
+        let newUser = {
+            _id: res.user._id,
+            fullname: res.user.fullname,
+            email: res.user.email,
+            phone_number: res.user.phone_number,
+            cart: res.user.cart
+        }
 
         let token = jwt.sign( newUser, process.env.SECRET, {
             expiresIn: 86400 // 24 hours
